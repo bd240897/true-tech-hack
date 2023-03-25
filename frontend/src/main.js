@@ -4,6 +4,9 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 
+// jquery
+window.$ = window.jQuery = require('jquery');
+
 // set base url for backend
 axios.defaults.baseURL = store.state.BASE_URL //'http://127.0.0.1:8000'
 
