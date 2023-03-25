@@ -1,0 +1,16 @@
+{
+  "get-time-events": [
+    {
+      "id": 1,
+      "type": "blur-filter",
+      "on": 2,
+      "off": 5
+    },
+    {
+      "id": 2,
+      "type": "blur-filter",
+      "on": 7,
+      "off": 10
+    }
+  ]
+}
