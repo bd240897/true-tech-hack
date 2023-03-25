@@ -28,6 +28,7 @@ body {
 
 .container {
     padding: 10px;
+    width: 60%;
 }
 
 .controls {
@@ -62,6 +63,10 @@ body {
     align-items: center;
 }
 
+.point {
+    cursor: pointer;
+}
+
 .total {
     width: 100%;
     height: 2px;
@@ -74,7 +79,7 @@ body {
 .current {
     position: absolute;
     background:#fff;
-    height:4px;
+    height: 4px;
     top: -1px;
     opacity: 1;
     border-radius: 1px;
@@ -126,4 +131,44 @@ body {
     display: flex;
     gap: 20px;
     align-items: flex-start;
+}
+
+@media (max-width: 1300px) {
+    .controls {
+        margin-top: 24px;
+    }
+
+    .progress {
+        width: 84%;
+    }
+
+    .time__set {
+        font-size: 13px;
+        line-height: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .container {
+        width: 80%;
+    }
+
+    .progress {
+        width: 80%;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .progress {
+        width: 75%;
+    }
+}
+
+@media (max-width: 466px) {
+
+    .progress {
+        width: 65%;
+    }
 }
