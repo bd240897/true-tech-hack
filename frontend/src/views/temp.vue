@@ -115,10 +115,10 @@ export default {
     }
   },
   computed: {
-    // ...mapState('first', ['firstData',]),
+    ...mapState('video', ['videoEventsData',]),
   },
   methods: {
-    // ...mapActions('first', ["GET_FIRST_DATA",]),
+    ...mapActions('video', ["GET_VIDEO_EVENTS_DATA",]),
     isWarning(str) {
       return str === 'warning'
     },
@@ -134,7 +134,7 @@ export default {
     },
   },
   created() {
-    // this.GET_FIRST_DATA({})
+    this.GET_VIDEO_EVENTS_DATA({})
   },
   mounted() {
 
@@ -211,19 +211,19 @@ export default {
     ///////////////////////////////////////// effects /////////////////////////////////////////////////////
     // button for video drive
 
-    let timeEvents = [
-      {
-        id: 1,
-        type: "blur-filter",
-        on: 2,
-        off: 5
-      },
-      {
-        id: 2,
-        type: "blur-filter",
-        on: 7,
-        off: 10
-      }]
+    // let timeEvents = [
+    //   {
+    //     id: 1,
+    //     type: "blur-filter",
+    //     on: 2,
+    //     off: 5
+    //   },
+    //   {
+    //     id: 2,
+    //     type: "blur-filter",
+    //     on: 7,
+    //     off: 10
+    //   }]
 
     document.querySelector("#play").addEventListener('click', event => {
       event.preventDefault()
@@ -259,7 +259,7 @@ export default {
       console.log(currentTime)
 
       let alreadyUsedEvents = []
-      timeEvents.forEach(x => {
+      this.videoEventsData.forEach(x => { //timeEvents was
         if (currentTime > x.on && currentTime < x.off) {
           document.querySelector(".video-stream").classList.add("blur-filter")
           console.log('on')

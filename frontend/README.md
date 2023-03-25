@@ -22,3 +22,7 @@ https://cli.vuejs.org/ru/guide/deployment.html#docker-nginx
 
 Заглушки для картинок 
     http://dummyimage.com/400
+
+
+dev env VUE_APP_API_URL=http://158.160.58.85:3004
+dev env API

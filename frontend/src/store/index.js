@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import first from "./modules/first/";
 import second from "./modules/second/";
 import third from "./modules/third/";
+import video from "./modules/video/";
 
 export default createStore({
   state() {
@@ -11,6 +12,7 @@ export default createStore({
       FIRST_SCREEN_URL: "/get-first-screen/",
       SECOND_SCREEN_URL: "/get-second-screen/",
       THIRD_SCREEN_URL: "/get-third-screen/",
+      VIDEO_URL: "/get-time-events/",
 
     }
   },
@@ -23,6 +25,7 @@ export default createStore({
   modules: {
     first,
     second,
-    third
+    third,
+    video
   }
 })
