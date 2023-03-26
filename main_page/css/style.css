@@ -1,0 +1,40 @@
+@import './fonts.css'; 
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Ubuntu';
+    background-color: #333;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.header__inner {
+    margin: 20px 165px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__left {
+    margin-left: 190px;
+}
+
+.nav__items {
+    display: flex;
+    gap: 30px;
+}
+
+.nav__item {
+    list-style: none;
+}
+
+.header__right {
+    display: flex;
+    gap: 20px
+}
