@@ -6,12 +6,14 @@ export default {
 
     },
     methods: {
-        goToFirst(id) {
-            this.$router.push({name: 'First'})
+        goToFilmsList() {
+            this.$router.push({name: 'FilmsList'})
         },
-
-        goToSecond(id) {
-            this.$router.push({name: 'Second', params: { id: id }})
+        goToFilmDetail() {
+            this.$router.push({name: 'FilmDetails', params: { id: 1 }})
+        },
+        goToFilmVideo() {
+            this.$router.push({name: 'FilmVideo', params: { id: 1 }})
         },
     }
 }

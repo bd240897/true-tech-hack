@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <span class="footer__text text-white">win_plus_ners</span>
+    <span class="footer__text text-white">I'm teapot</span>
   </div>
 </template>
 

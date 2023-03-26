@@ -1,30 +1,24 @@
 import {createRouter, createWebHistory} from 'vue-router'
-// import First from '../views/First.vue'
-// import Second from '../views/Second.vue'
-// import Third from '../views/Third.vue'
-import temp from '../views/temp.vue'
+import FilmsList from '../views/FilmsList.vue'
+import FilmDetails from '../views/FilmDetails.vue'
+import FilmVideo from '../views/FilmVideo.vue'
 
 
 const routes = [
-    // {
-    //     path: '/first-screen',
-    //     name: 'First',
-    //     component: First
-    // },
-    // {
-    //     path: '/second-screen/:id',
-    //     name: 'Second',
-    //     component: Second
-    // },
-    // {
-    //     path: '/third-screen/',
-    //     name: 'Third',
-    //     component: Third
-    // },
     {
-        path: '/temp/',
-        name: 'temp',
-        component: temp
+        path: '/',
+        name: 'FilmsList',
+        component: FilmsList
+    },
+    {
+        path: '/details/:id',
+        name: 'FilmDetails',
+        component: FilmDetails
+    },
+    {
+        path: '/video/:id',
+        name: 'FilmVideo',
+        component: FilmVideo
     },
 ]
 

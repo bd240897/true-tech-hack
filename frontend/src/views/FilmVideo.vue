@@ -1,7 +1,7 @@
 <template>
   <Navbar/>
 
-  <h1 class="screen-name text-center">Первый экран</h1>
+  <h1 class="screen-name text-center text-white">FilmVideo</h1>
 
   <section class="first_screen">
     <div class="container">
@@ -103,7 +103,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default {
-  name: "temp",
+  name: "FilmVideo",
   components: {
     Navbar,
     Footer
