@@ -1,4 +1,6 @@
-from fastapi import FastAPI, Request, Response, Header
+import json
+
+from fastapi import FastAPI, Request, Response, Header, UploadFile, File
 from fastapi.responses import StreamingResponse
 from pathlib import Path
 from fastapi.openapi.docs import (
@@ -8,7 +10,6 @@ from fastapi.openapi.docs import (
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from io import BytesIO
-
 
 # app = FastAPI(docs_url=None, redoc_url=None)
 app = FastAPI()
@@ -29,12 +30,14 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 #     return get_swagger_ui_oauth2_redirect_html()
 
 templates = Jinja2Templates(directory="templates")
-CHUNK_SIZE = 1024*1024
+CHUNK_SIZE = 1024 * 1024
 video_path = Path("static/video.mp4")
+
 
 @app.get("/")
 async def read_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
+
 
 # @app.get("/video")
 # async def video_endpoint(range: str = Header(None)):
@@ -70,7 +73,7 @@ from fastapi.responses import StreamingResponse
 
 
 def send_bytes_range_requests(
-    file_obj: BinaryIO, start: int, end: int, chunk_size: int = 10_000
+        file_obj: BinaryIO, start: int, end: int, chunk_size: int = 10_000
 ):
     """Send a file in chunks using Range Requests specification RFC7233
 
@@ -103,7 +106,7 @@ def _get_range_header(range_header: str, file_size: int):
 
 
 def range_requests_response(
-    request: Request, file_path: str, content_type: str
+        request: Request, file_path: str, content_type: str
 ):
     """Returns StreamingResponse using Range Requests of a given file"""
 
@@ -137,8 +140,44 @@ def range_requests_response(
         status_code=status_code,
     )
 
+
 @app.get("/video")
 def get_video(request: Request):
     return range_requests_response(
         request, file_path=str(video_path), content_type="video/mp4"
     )
+
+
+timings_of_movie_moments = [
+    {
+        "id": 1,
+        "type": "blur-filter",
+        "on": 2,
+        "off": 5,
+    },
+    {
+        "id": 2,
+        "type": "blur-filter",
+        "on": 7,
+        "off": 10,
+    },
+    {
+        "id": 3,
+        "type": "something",
+        "on": 12,
+        "off": 18,
+    },
+]
+
+
+# Отдача готового json
+@app.get('/get_moments')
+def get_json():
+    return timings_of_movie_moments
+
+# Отдача готового json, но из файла
+@app.post('/')
+def get_json(json_file: UploadFile):
+    with open(json_file.filename, 'r') as f:
+        data = json.load(f)
+    return data
