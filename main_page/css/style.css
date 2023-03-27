@@ -7,7 +7,17 @@
 
 body {
     font-family: 'Ubuntu';
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
     background-color: #333;
+}
+
+.main__img {
+    position: relative;
+    left: -50%;
+    z-index: -1;
+    overflow: hidden;
 }
 
 .container {
@@ -19,6 +29,14 @@ body {
     margin: 20px 165px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    transform: translate3d(0, calc(var(--scrollTop)), 0);
+}
+
+.header-kion {
+    position: absolute;
+    top: 12%;
+    margin-left: 40px;
 }
 
 .header__left {
@@ -34,7 +52,49 @@ body {
     list-style: none;
 }
 
+.nav__item a {
+    text-decoration: none;
+    color: #EEEEEE;
+}
+
 .header__right {
     display: flex;
     gap: 20px
+}
+
+.header__find-text {
+    padding: 8px 16px;   
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    outline: none;
+}
+
+.home__title {
+    max-width: 520px;
+    position: relative;
+    margin: 325px 0 244px 328px;
+}
+
+.home__title-img {
+    margin-bottom: 12px;
+}
+
+.home__title__text {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.home__title-descr {
+    display: flex;
+    gap: 16px;  
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.arrow {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
 }
