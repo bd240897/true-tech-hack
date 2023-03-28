@@ -5,3 +5,4 @@ __pycache__/
 .idea
 /backend/recieve/CA.pem
 /backend/recieve/__pycache__
+/kaspersky/

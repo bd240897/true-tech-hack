@@ -9,3 +9,14 @@ services:
     ports:
       - "8080:8080"
       - "3004:3004"
+  backend:
+    # Берем Dockerfile из каталога app
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    # TODO
+    restart: always
+    # Запускаем тестовый сервер
+    command: uvicorn main:app --host 0.0.0.0 --port 8001
+    ports:
+      - "8001:8001"
