@@ -28,7 +28,7 @@ export default {
 
       <section class="presets h-100">
         <div class="presets h-100 d-flex align-items-center justify-content-center">
-          <div class="h-50 w-50">
+          <div class="w-50">
 
             <div class="p-3" style="background-color: dimgrey; border-radius: 10px;">
               <h1 class="text-center text-white">Выберите пресет</h1>
@@ -133,59 +133,6 @@ export default {
 
     </div>
   </transition>
-
-
-  <!--    <div class="">-->
-  <!--      <transition name="modal-fade-v2">-->
-  <!--        <div class="modal-backdrop-v2">-->
-  <!--          <div class="modal-v2"-->
-  <!--               role="dialog"-->
-  <!--               aria-labelledby="modalTitle"-->
-  <!--               aria-describedby="modalDescription"-->
-  <!--          >-->
-  <!--            <header-->
-  <!--                class="modal-header-v2"-->
-  <!--                id="modalTitle"-->
-  <!--            >-->
-  <!--              <slot name="header">-->
-  <!--                This is the default tile!-->
-
-  <!--                <button-->
-  <!--                    type="button"-->
-  <!--                    class="btn-close"-->
-  <!--                    @click="close"-->
-  <!--                    aria-label="Close modal"-->
-  <!--                >-->
-  <!--                  x-->
-  <!--                </button>-->
-  <!--              </slot>-->
-  <!--            </header>-->
-  <!--            <section-->
-  <!--                class="modal-body-v2"-->
-  <!--                id="modalDescription"-->
-  <!--            >-->
-  <!--              <slot name="body">-->
-  <!--                I'm the default body!-->
-  <!--              </slot>-->
-  <!--            </section>-->
-  <!--            <footer class="modal-footer-v2">-->
-  <!--              <slot name="footer">-->
-  <!--                I'm the default footer!-->
-
-  <!--                <button-->
-  <!--                    type="button"-->
-  <!--                    class="btn-green"-->
-  <!--                    @click="close"-->
-  <!--                    aria-label="Close modal"-->
-  <!--                >-->
-  <!--                  Close me!-->
-  <!--                </button>-->
-  <!--              </slot>-->
-  <!--            </footer>-->
-  <!--          </div>-->
-  <!--        </div>-->
-  <!--      </transition>-->
-  <!--    </div>-->
 
 </template>
 

@@ -1,5 +1,4 @@
 <template>
-  <Navbar/>
 
   <h1 class="screen-name text-center text-white">FilmDetails</h1>
 
@@ -13,20 +12,17 @@
     </div>
   </section>
 
-  <Footer/>
 </template>
 
 <script>
 import goToSomewhere from "@/mixins/goToSomewhere";
 import {mapActions, mapState} from "vuex";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+
 
 export default {
   name: "FilmDetails",
   components: {
-    Navbar,
-    Footer
+
   },
   mixins: [goToSomewhere],
   data() {

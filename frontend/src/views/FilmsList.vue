@@ -1,5 +1,4 @@
 <template>
-  <Navbar/>
 
   <h1 class="screen-name text-center text-white">FilmsList</h1>
 
@@ -9,8 +8,6 @@
       <button v-on:click="goToFilmDetail">GoToFilmDetails</button>
     </div>
   </section>
-
-  <Footer/>
 
 </template>
 
@@ -23,8 +20,7 @@ import Footer from "@/components/Footer";
 export default {
   name: "FilmsList",
   components: {
-    Navbar,
-    Footer
+
   },
   mixins: [goToSomewhere],
   data() {
