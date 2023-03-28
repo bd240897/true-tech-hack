@@ -35,10 +35,10 @@ export default {
     }
   },
   computed: {
-    ...mapState('second', ['secondData',]),
+    // ...mapState('second', ['secondData',]),
   },
   methods: {
-    ...mapActions('second', ["GET_SECOND_DATA",]),
+    // ...mapActions('second', ["GET_SECOND_DATA",]),
     isWarning(str) {
       return str === 'warning'
     },
