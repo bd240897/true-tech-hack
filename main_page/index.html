@@ -23,13 +23,54 @@
     </svg>
 
     <div class="wrapper">
-        <div class="container">
             <header class="header">
-                <img src="./images/Logo.png" alt="" class="header-kion">
-                <div class="header__inner">
-                    <div class="header__left">
+                <div class="headeer__wrapper">
+                    <img src="./images/Logo.png" alt="" class="header-kion">
+                    <div class="header__inner">
+                        <div class="header__left">
+                            <nav class="header__nav">
+                                <ul class="nav__items">
+                                    <li class="nav__item"><a href="">Главная</a></li>
+                                    <li class="nav__item"><a href="">Телеканалы</a></li>
+                                    <li class="nav__item"><a href="">Фильмы</a></li>
+                                    <li class="nav__item"><a href="">Сериалы</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="header__right">
+                            <div class="header__find">
+                                <input class="header__find-text" type="text" name="find" placeholder="Поиск">
+                            </div>
+                            <div class="header__profile">
+                                <svg class="header__profile-icon" width="40" height="40">
+                                    <use href="#profile-icon"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home__title">
+                        <img src="./images/миллионер_название_баннер.svg" alt="" class="home__title-img">
+                        <p class="home__title__text">Четверо рыбаков узнают, что вот-вот останутся без работы. Чем не повод ограбить собственного босса!</p>
+                        <div class="home__title-descr">
+                            <p class="home__title-descr--text">2022</p>
+                            <p class="home__title-descr--text">Комедия</p>
+                            <p class="home__title-descr--text">18+</p>
+                        </div>
+                        <img class="home__title-play" src="./images/play2.svg" alt="">
+                    </div>
+                    <div class="arrow">
+                        <svg class="arrow-svg" width="100" height="45" viewBox="0 0 100 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 2L50 42L98 2" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </header>
+            <section class="home">
+                <div class="hits">
+                    <div class="bottom-menu">
+                        <img src="./images/12345.png" alt="">
                         <nav class="header__nav">
-                            <ul class="nav__items">
+                            <ul class="nav__items new__style">
                                 <li class="nav__item"><a href="">Главная</a></li>
                                 <li class="nav__item"><a href="">Телеканалы</a></li>
                                 <li class="nav__item"><a href="">Фильмы</a></li>
@@ -37,37 +78,155 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="header__right">
-                        <div class="header__find">
-                            <input class="header__find-text" type="text" name="find" placeholder="Поиск">
+                    <div class="hits-top">
+                        <h2 class="title-hits">Хиты на KION</h2>
+                        <p class="more">Смотреть больше ></p>
+                    </div>
+                    <div class="cards">
+                        <div class="card">
+                            <img class="card__img" src="./images/фильмы/1.png" alt="">
+                            <div class="card__text">
+                                <p class="card_name">Сердце Пармы</p>
+                                <div class="card__rating">
+                                    <img class="card__rating-stars" src="./images/Vector.png" alt="">
+                                    <p class="rating">8.6 /</p>
+                                    <p class="podpiska">Подписка</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="header__profile">
-                            <svg class="header__profile-icon" width="40" height="40">
-                                <use href="#profile-icon"></use>
-                            </svg>
+                        <div class="card">
+                            <img class="card__img" src="./images/фильмы/2.png" alt="">
+                            <div class="card__text">
+                                <p class="card_name">Раневская</p>
+                                <div class="card__rating">
+                                    <img class="card__rating-stars" src="./images/Vector.png" alt="">
+                                    <p class="rating">8.6 /</p>
+                                    <p class="podpiska">Подписка</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card__img" src="./images/фильмы/3.png" alt="">
+                            <div class="card__text">
+                                <p class="card_name">Один настоящий де..</p>
+                                <div class="card__rating">
+                                    <img class="card__rating-stars" src="./images/Vector.png" alt="">
+                                    <p class="rating">8.6 /</p>
+                                    <p class="podpiska">Подписка</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card__img" src="./images/фильмы/4.png" alt="">
+                            <div class="card__text">
+                                <p class="card_name">Тест на беременно...</p>
+                                <div class="card__rating">
+                                    <img class="card__rating-stars" src="./images/Vector.png" alt="">
+                                    <p class="rating">8.2 /</p>
+                                    <p class="podpiska">Подписка</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card__img" src="./images/фильмы/5.png" alt="">
+                            <div class="card__text">
+                                <p class="card_name">Комплекс Бога</p>
+                                <div class="card__rating">
+                                    <img class="card__rating-stars" src="./images/Vector.png" alt="">
+                                    <p class="rating">8.9 /</p>
+                                    <p class="podpiska">Подписка</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card__img" src="./images/фильмы/6.png" alt="">
+                            <div class="card__text">
+                                <p class="card_name">Омар в большом го..</p>
+                                <div class="card__rating">
+                                    <img class="card__rating-stars" src="./images/Vector.png" alt="">
+                                    <p class="rating">7.4</p>
+                                    <p class="podpiska">Подписка</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="home__title">
-                    <img src="./images/миллионер_название_баннер.svg" alt="" class="home__title-img">
-                    <p class="home__title__text">Четверо рыбаков узнают, что вот-вот останутся без работы. Чем не повод ограбить собственного босса!</p>
-                    <div class="home__title-descr">
-                        <p class="home__title-descr--text">2022</p>
-                        <p class="home__title-descr--text">Комедия</p>
-                        <p class="home__title-descr--text">18+</p>
+                    <div class="hits-top hits-bot">
+                        <h2 class="title-hits">Фильмы для людей с особенностями зрения</h2>
+                        <p class="more">Смотреть больше ></p>
                     </div>
-                    <img class="home__title-play" src="./images/play2.svg" alt="">
+                    <p class="descr">Фильмы содержат функцию пропуска сцен, способных вызвать эпелептический припадок, а также фильтры для разных типов дальтонизма.</p>
+                    <div class="cards cards-sec">
+                        <div class="card">
+                            <img class="card__img" src="./images/фильмы/1.png" alt="">
+                            <div class="card__text">
+                                <p class="card_name">Сердце Пармы</p>
+                                <div class="card__rating">
+                                    <img class="card__rating-stars" src="./images/Vector.png" alt="">
+                                    <p class="rating">8.6 /</p>
+                                    <p class="podpiska">Подписка</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card__img" src="./images/фильмы/2.png" alt="">
+                            <div class="card__text">
+                                <p class="card_name">Раневская</p>
+                                <div class="card__rating">
+                                    <img class="card__rating-stars" src="./images/Vector.png" alt="">
+                                    <p class="rating">8.6 /</p>
+                                    <p class="podpiska">Подписка</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card__img" src="./images/фильмы/3.png" alt="">
+                            <div class="card__text">
+                                <p class="card_name">Один настоящий де..</p>
+                                <div class="card__rating">
+                                    <img class="card__rating-stars" src="./images/Vector.png" alt="">
+                                    <p class="rating">8.6 /</p>
+                                    <p class="podpiska">Подписка</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card__img" src="./images/фильмы/4.png" alt="">
+                            <div class="card__text">
+                                <p class="card_name">Тест на беременно...</p>
+                                <div class="card__rating">
+                                    <img class="card__rating-stars" src="./images/Vector.png" alt="">
+                                    <p class="rating">8.2 /</p>
+                                    <p class="podpiska">Подписка</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card__img" src="./images/фильмы/5.png" alt="">
+                            <div class="card__text">
+                                <p class="card_name">Комплекс Бога</p>
+                                <div class="card__rating">
+                                    <img class="card__rating-stars" src="./images/Vector.png" alt="">
+                                    <p class="rating">8.9 /</p>
+                                    <p class="podpiska">Подписка</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card__img" src="./images/фильмы/6.png" alt="">
+                            <div class="card__text">
+                                <p class="card_name">Омар в большом го..</p>
+                                <div class="card__rating">
+                                    <img class="card__rating-stars" src="./images/Vector.png" alt="">
+                                    <p class="rating">7.4</p>
+                                    <p class="podpiska">Подписка</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
-                <div class="arrow">
-                    <svg class="arrow-svg" width="100" height="45" viewBox="0 0 100 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2 2L50 42L98 2" stroke="white" stroke-width="4" stroke-linecap="round"/>
-                    </svg>
-                </div>
-            </header>
-            <section class="home">
-                <img src="./images" alt="" class="homo__logo">
+                
             </section>
-        </div>
     </div>
     <script src="./js/app.js"></script>
 </body>
