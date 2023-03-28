@@ -17,15 +17,9 @@
 
         <div class="video">
 
-          <!--          <div class="video-wrapper">-->
-          <!--            <video id="myvideo" class="video-stream" width="100%" height="auto">-->
-          <!--              <source controls="controls" src="http://91.185.84.82:8001/video" type="video/mp4"/>-->
-          <!--            </video>-->
-          <!--          </div>-->
-
           <div class="video-wrapper">
             <video id="myvideo" class="video-stream" width="100%" height="auto">
-              <source controls="controls" src="http://localhost:8000/video/" type="video/mp4"/>
+              <source controls="controls" src="" type="video/mp4"/>
             </video>
           </div>
 
@@ -125,18 +119,8 @@ export default {
   },
   methods: {
     ...mapActions('video', ["GET_VIDEO_EVENTS_DATA",]),
-    isWarning(str) {
-      return str === 'warning'
-    },
-    isAlarm(str) {
-      return str === 'alarm'
-    },
-    isWarningOrAlarm(strData) {
-      if (strData === 'warning') {
-        return "block_exauster__params--warning"
-      } else if (strData === 'alarm') {
-        return "block_exauster__params--alert"
-      }
+    createWindowForPresets() {
+      // code here
     },
   },
   created() {
@@ -237,6 +221,8 @@ export default {
     //     off: 10
     //   }]
 
+
+    // TODO переписать бы это во вью
     document.querySelector("#play").addEventListener('click', event => {
       event.preventDefault()
       document.querySelector(".video-stream").play()

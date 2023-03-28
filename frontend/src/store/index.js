@@ -1,19 +1,12 @@
 import { createStore } from 'vuex'
-import first from "./modules/first/";
-import second from "./modules/second/";
-import third from "./modules/third/";
 import video from "./modules/video/";
 
 export default createStore({
   state() {
     return {
-      // TODO
-      BASE_URL: process.env.VUE_APP_API_URL || "http://localhost:3004", // 'http://84.201.135.220:8000', //'http://127.0.0.1:8000',
-      FIRST_SCREEN_URL: "/get-first-screen/",
-      SECOND_SCREEN_URL: "/get-second-screen/",
-      THIRD_SCREEN_URL: "/get-third-screen/",
+      BASE_URL: process.env.VUE_APP_API_URL || "http://localhost:3004",
       VIDEO_DATA_URL: "/get-time-events/",
-      VIDEO_URL: process.env.VUE_APP_VIDEO_URL || "http://localhost:8000/video/" // 91.185.84.82:8001
+      VIDEO_URL: process.env.VUE_APP_VIDEO_URL || "http://localhost:8000/video/",
     }
   },
   getters: {
@@ -23,9 +16,6 @@ export default createStore({
   actions: {
   },
   modules: {
-    first,
-    second,
-    third,
     video
   }
 })
