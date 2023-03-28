@@ -6,6 +6,20 @@
   <section class="first_screen">
     <div class="container">
 
+      <button
+          type="button"
+          class="btn bg-primary"
+          @click="showModal"
+      >
+        Открыть пресеты фильтров
+      </button>
+
+      <modal
+          v-show="isModalVisible"
+          @close="closeModal"
+      />
+
+
       <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
         <symbol id="pause">
           <path
@@ -13,6 +27,7 @@
               fill="white"/>
         </symbol>
       </svg>
+
       <div class="container">
 
         <div class="video">
@@ -92,25 +107,31 @@
     </div>
   </section>
 
+
   <Footer/>
 </template>
 
 <script>
 import goToSomewhere from "@/mixins/goToSomewhere";
+import player from "@/mixins/FilmVideo/player";
 import {mapActions, mapState} from "vuex";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import modal from '@/components/modal.vue';
 
 export default {
   name: "FilmVideo",
   components: {
     Navbar,
-    Footer
+    Footer,
+    modal
   },
-  mixins: [goToSomewhere],
+  mixins: [goToSomewhere, player],
   data() {
     return {
       temp: '',
+      // modal window
+      isModalVisible: false,
     }
   },
   computed: {
@@ -122,6 +143,13 @@ export default {
     createWindowForPresets() {
       // code here
     },
+    // modal window
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    }
   },
   created() {
     this.GET_VIDEO_EVENTS_DATA({})
@@ -134,75 +162,6 @@ export default {
     videoElement.src = this.VIDEO_URL
     document.getElementById("myvideo").poster = "https://papik.pro/en/uploads/posts/2022-07/1658692788_34-papik-pro-p-pure-black-background-without-drawing-35.jpg";
 
-    //////////////////////////////// player video ///////////////////////////////////////////////////////////
-    let controls = {
-      video: $("#myvideo"),
-      total: $("#total"),
-      buffered: $("#buffered"),
-      progress: $("#current"),
-      duration: $("#duration"),
-      currentTime: $("#currenttime"),
-      hasHours: false,
-
-      togglePlayback: function () {
-        (video.paused) ? video.play($('.video__btn').css('display', 'none'))
-            : video.pause($('.video__btn').css('display', 'block'));
-      }
-    };
-
-    let video = controls.video[0];
-
-    video.addEventListener("ended", function () {
-      video.pause();
-    });
-
-    controls.video.click(function () {
-      controls.togglePlayback();
-    });
-
-    video.addEventListener("canplay", function () {
-      controls.hasHours = (video.duration / 3600) >= 1.0;
-
-      controls.duration.text(formatTime(video.duration, controls.hasHours));
-      controls.currentTime.text(formatTime(0), controls.hasHours);
-    }, false);
-
-    video.addEventListener("timeupdate", function () {
-      controls.currentTime.text(formatTime(video.currentTime, controls.hasHours));
-
-      let progress = Math.floor(video.currentTime) / Math.floor(video.duration);
-      controls.progress[0].style.width = Math.floor(progress * controls.total.width()) + "px";
-    }, false);
-
-    controls.total.click(function (e) {
-      let x = (e.pageX - this.offsetLeft) / $(this).width();
-      video.currentTime = x * video.duration;
-    });
-
-    function formatTime(time, hours) {
-      if (hours) {
-        let h = Math.floor(time / 3600);
-        time = time - h * 3600;
-
-        let m = Math.floor(time / 60);
-        let s = Math.floor(time % 60);
-
-        return h.lead0(2) + ":" + m.lead0(2) + ":" + s.lead0(2);
-      } else {
-        let m = Math.floor(time / 60);
-        let s = Math.floor(time % 60);
-
-        return m.lead0(2) + ":" + s.lead0(2);
-      }
-    }
-
-    Number.prototype.lead0 = function (n) {
-      let nz = "" + this;
-      while (nz.length < n) {
-        nz = "0" + nz;
-      }
-      return nz;
-    };
 
     ///////////////////////////////////////// effects /////////////////////////////////////////////////////
     // button for video drive
@@ -221,108 +180,106 @@ export default {
     //     off: 10
     //   }]
 
-
-    // TODO переписать бы это во вью
-    document.querySelector("#play").addEventListener('click', event => {
-      event.preventDefault()
-      document.querySelector(".video-stream").play()
-    })
-
-    document.querySelector("#stop").addEventListener('click', event => {
-      event.preventDefault()
-      document.querySelector(".video-stream").pause()
-    })
-
-    document.querySelector(".btn-1").addEventListener('click', event => {
-      event.preventDefault()
-      cleanWrapperClasses()
-      document.querySelector(".video-wrapper").classList.add("black-white-filter")
-    })
-
-    document.querySelector(".btn-2").addEventListener('click', event => {
-      event.preventDefault()
-      cleanWrapperClasses()
-      document.querySelector(".video-wrapper").classList.add("brightness-high-filter")
-    })
-
-    document.querySelector('.div-BCS').addEventListener('click', event => {
-      event.preventDefault()
-      setBCS()
-    })
-
-    document.querySelector(".video-stream").addEventListener('timeupdate', event => {
-      // event.preventDefault()
-      const video = document.querySelector(".video-stream")
-      let currentTime = video.currentTime
-      console.log(currentTime)
-
-      let alreadyUsedEvents = []
-      this.videoEventsData.forEach(x => { //timeEvents was
-        if (currentTime > x.on && currentTime < x.off) {
-          document.querySelector(".video-stream").classList.add("blur-filter")
-          console.log('on')
-        } else if (currentTime > x.off && !alreadyUsedEvents.includes(x.id)) {
-          alreadyUsedEvents.push(x.id)
-          resetBCSClasses()
-          console.log('off')
-        }
-      })
-    })
-
-
-    // очищает классы для обертки видео
-    function cleanWrapperClasses() {
-      let a = document.querySelector(".video-wrapper")
-      a.className = ''
-      a.classList.add("video-wrapper")
-    }
-
-
-    // установить яркость конрастность и насыщенность для видео
-    function setBCS() {
-      const note = document.querySelector('.video-stream');
-      // Яркость Контраст Насыщенность
-      let brightness = document.querySelector('.brightness').value //400
-      let contrast = document.querySelector('.contrast').value //100
-      let saturate = document.querySelector('.saturate').value //100
-      note.style.filter = `brightness(${brightness}%) contrast(${contrast}%) saturate(${saturate}%)`;
-    }
-
-
-    // сбрасывает стили для видер
-    function resetBCSStyle() {
-      let a = document.querySelector(".video-stream")
-      a.style = ""
-      document.querySelector('.brightness').value = 100
-      document.querySelector('.contrast').value = 100
-      document.querySelector('.saturate').value = 100
-    }
-
-    // сбрасывает классы для видео
-    function resetBCSClasses() {
-      let a = document.querySelector(".video-stream")
-      a.className = ''
-      a.classList.add("video-stream")
-    }
-
-    document.querySelector(".btn-reset").addEventListener('click', event => {
-      event.preventDefault()
-      resetBCSClasses()
-      resetBCSStyle()
-      cleanWrapperClasses()
-    })
-
-
-    // устанавливает заданные параметры видео
-    function setBCSValue(brightness, contrast, saturate) {
-      document.querySelector('.brightness').value = brightness //400
-      document.querySelector('.contrast').value = contrast //100
-      document.querySelector('.saturate').value = saturate //100
-      const note = document.querySelector('.video-stream');
-      note.style.filter = `brightness(${brightness}%) contrast(${contrast}%) saturate(${saturate}%)`;
-    }
-
-
+    //
+    // // TODO переписать бы это во вью
+    // document.querySelector("#play").addEventListener('click', event => {
+    //   event.preventDefault()
+    //   document.querySelector(".video-stream").play()
+    // })
+    //
+    // document.querySelector("#stop").addEventListener('click', event => {
+    //   event.preventDefault()
+    //   document.querySelector(".video-stream").pause()
+    // })
+    //
+    // document.querySelector(".btn-1").addEventListener('click', event => {
+    //   event.preventDefault()
+    //   cleanWrapperClasses()
+    //   document.querySelector(".video-wrapper").classList.add("black-white-filter")
+    // })
+    //
+    // document.querySelector(".btn-2").addEventListener('click', event => {
+    //   event.preventDefault()
+    //   cleanWrapperClasses()
+    //   document.querySelector(".video-wrapper").classList.add("brightness-high-filter")
+    // })
+    //
+    // document.querySelector('.div-BCS').addEventListener('click', event => {
+    //   event.preventDefault()
+    //   setBCS()
+    // })
+    //
+    // document.querySelector(".video-stream").addEventListener('timeupdate', event => {
+    //   // event.preventDefault()
+    //   const video = document.querySelector(".video-stream")
+    //   let currentTime = video.currentTime
+    //   console.log(currentTime)
+    //
+    //   let alreadyUsedEvents = []
+    //   this.videoEventsData.forEach(x => { //timeEvents was
+    //     if (currentTime > x.on && currentTime < x.off) {
+    //       document.querySelector(".video-stream").classList.add("blur-filter")
+    //       console.log('on')
+    //     } else if (currentTime > x.off && !alreadyUsedEvents.includes(x.id)) {
+    //       alreadyUsedEvents.push(x.id)
+    //       resetBCSClasses()
+    //       console.log('off')
+    //     }
+    //   })
+    // })
+    //
+    //
+    // // очищает классы для обертки видео
+    // function cleanWrapperClasses() {
+    //   let a = document.querySelector(".video-wrapper")
+    //   a.className = ''
+    //   a.classList.add("video-wrapper")
+    // }
+    //
+    //
+    // // установить яркость конрастность и насыщенность для видео
+    // function setBCS() {
+    //   const note = document.querySelector('.video-stream');
+    //   // Яркость Контраст Насыщенность
+    //   let brightness = document.querySelector('.brightness').value //400
+    //   let contrast = document.querySelector('.contrast').value //100
+    //   let saturate = document.querySelector('.saturate').value //100
+    //   note.style.filter = `brightness(${brightness}%) contrast(${contrast}%) saturate(${saturate}%)`;
+    // }
+    //
+    //
+    // // сбрасывает стили для видер
+    // function resetBCSStyle() {
+    //   let a = document.querySelector(".video-stream")
+    //   a.style = ""
+    //   document.querySelector('.brightness').value = 100
+    //   document.querySelector('.contrast').value = 100
+    //   document.querySelector('.saturate').value = 100
+    // }
+    //
+    // // сбрасывает классы для видео
+    // function resetBCSClasses() {
+    //   let a = document.querySelector(".video-stream")
+    //   a.className = ''
+    //   a.classList.add("video-stream")
+    // }
+    //
+    // document.querySelector(".btn-reset").addEventListener('click', event => {
+    //   event.preventDefault()
+    //   resetBCSClasses()
+    //   resetBCSStyle()
+    //   cleanWrapperClasses()
+    // })
+    //
+    //
+    // // устанавливает заданные параметры видео
+    // function setBCSValue(brightness, contrast, saturate) {
+    //   document.querySelector('.brightness').value = brightness //400
+    //   document.querySelector('.contrast').value = contrast //100
+    //   document.querySelector('.saturate').value = saturate //100
+    //   const note = document.querySelector('.video-stream');
+    //   note.style.filter = `brightness(${brightness}%) contrast(${contrast}%) saturate(${saturate}%)`;
+    // }
   }
 }
 
@@ -330,7 +287,11 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap') html, body
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/*#myvideo {*/
+/*  filter: url(#filter1)*/
+/*}*/
 
 .btn-reset {
   background-color: red;

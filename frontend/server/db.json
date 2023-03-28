@@ -14,6 +14,31 @@
         "off": 10
       }
     ]
-  }
+  },
+  "get-preset": [
+    {
+      "brightness": 100,
+      "contrast": 200,
+      "saturate": 200
+    },
+    {
+      "brightness": 200,
+      "contrast": 100,
+      "saturate": 100,
+
+      "invert": 100,
+      "grayscale": 100,
+
+      "channelR": 1,
+      "channelG": 1,
+      "channelB": 1,
+      "channelA": 1
+    },
+    {
+      "brightness": 200,
+      "contrast": 200,
+      "saturate": 200
+    }
+  ]
 }
 
