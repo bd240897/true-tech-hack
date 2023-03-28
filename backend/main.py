@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, Response, Header
+from fastapi import FastAPI, Request, Response, Header, UploadFile
 from fastapi.responses import StreamingResponse
 from pathlib import Path
 from fastapi.openapi.docs import (
@@ -8,65 +8,28 @@ from fastapi.openapi.docs import (
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from io import BytesIO
+import os
+from typing import BinaryIO
+from fastapi import HTTPException, Request, status
+from fastapi.responses import StreamingResponse
+import json
 
-
-# app = FastAPI(docs_url=None, redoc_url=None)
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# @app.get("/docs", include_in_schema=False)
-# async def custom_swagger_ui_html():
-#     return get_swagger_ui_html(
-#         openapi_url=app.openapi_url,
-#         title=app.title + " - Swagger UI",
-#         oauth2_redirect_url=app.swagger_ui_oauth2_redirect_url,
-#         swagger_js_url="/static/swagger-ui-bundle.js",
-#         swagger_css_url="/static/swagger-ui.css",
-#     )
-
-# @app.get(app.swagger_ui_oauth2_redirect_url, include_in_schema=False)
-# async def swagger_ui_redirect():
-#     return get_swagger_ui_oauth2_redirect_html()
 
 templates = Jinja2Templates(directory="templates")
 CHUNK_SIZE = 1024*1024
+
+# ПУТИ К ФАЙЛАМ
 video_path = Path("static/video.mp4")
+json_path = Path("static/video.json")
+video_path_number_2 = Path("static/video_2.mp4")
+json_path_number_2 = Path("static/video_2.json")
 
 @app.get("/")
 async def read_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
-
-# @app.get("/video")
-# async def video_endpoint(range: str = Header(None)):
-#     start, end = range.replace("bytes=", "").split("-")
-#     start = int(start)
-#     end = int(end) if end else start + CHUNK_SIZE
-#     with open(video_path, 'rb') as video:
-#         video.seek(start)
-#         data = video.read(end-start)
-#         filesize = str(video_path.stat().st_size)
-#         headers = {
-#             'Content-Range': f'bytes {str(start)}-{str(end)}/{filesize}',
-#             'Accept-Ranges': 'bytes'
-#
-#         }
-#         return StreamingResponse(BytesIO(data), status_code=206, headers=headers, media_type="multipart/x-mixed-replace;boundary=frame")
-
-
-# @app.get("/video")
-# async def video_endpoint():
-#     def iterfile():
-#         with open(video_path, mode="rb") as file_like:
-#             yield from file_like
-#
-#     return StreamingResponse(iterfile(), media_type="video/mp4")
-
-
-import os
-from typing import BinaryIO
-
-from fastapi import HTTPException, Request, status
-from fastapi.responses import StreamingResponse
 
 
 def send_bytes_range_requests(
@@ -142,3 +105,23 @@ def get_video(request: Request):
     return range_requests_response(
         request, file_path=str(video_path), content_type="video/mp4"
     )
+
+@app.get("/video/2")
+def get_video(request: Request):
+    return range_requests_response(
+        request, file_path=str(video_path_number_2), content_type="video/mp4"
+    )
+
+# Отдача готового json
+@app.get('/get-time-events')
+def get_json():
+    with open(json_path) as f:
+        time_codes = json.load(f)
+        return time_codes
+
+# прием готового json, но из файла
+@app.post('/')
+def get_json(json_file: UploadFile):
+    with open(json_file.filename, 'r') as f:
+        data = json.load(f)
+    return data
