@@ -5,7 +5,8 @@
   <section class="first_screen">
     <div class="container">
 
-      <button
+      <div class="btn__wrapper">
+        <button
           type="button"
           class="btn bg-primary"
           @click="showModal"
@@ -17,6 +18,7 @@
           v-show="isModalVisible"
           @close="closeModal"
       />
+      </div>
 
 
       <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
@@ -32,7 +34,7 @@
         </symbol>
       </svg>
 
-      <div class="container">
+      <div class="container1">
 
         <div class="video">
           <div class="video-wrapper">
@@ -301,7 +303,7 @@ body {
 
 .container {
   padding: 10px;
-  width: 60%;
+  width: 30%;
 }
 
 .controls {
@@ -331,7 +333,7 @@ body {
 }
 
 .progress {
-  width: 88%;
+  width: 85%;
   display: flex;
   align-items: center;
   --bs-progress-bg: rgba(0, 0, 0, 0);
@@ -382,6 +384,8 @@ body {
 .center__panel {
   display: flex;
   gap: 10px;
+  position: relative;
+  top: -10px;
 }
 
 .center__panel-block {
@@ -390,7 +394,7 @@ body {
 
 .icon {
   position: absolute;
-  top: 46%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -454,9 +458,27 @@ body {
   padding: 8px 16px;
 }
 
-@media (max-width: 1300px) {
+.btn__wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.btn__wrapper button {
+  color: #fff;
+}
+
+@media (max-width: 1440px) {
   .controls {
     margin-top: 24px;
+  }
+
+  .container {
+    width: 43%;
+  }
+
+  .screen-name {
+    font-size: 26px;
   }
 
   .progress {
@@ -469,10 +491,10 @@ body {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
 
   .container {
-    width: 80%;
+    width: 65%;
   }
 
   .progress {
