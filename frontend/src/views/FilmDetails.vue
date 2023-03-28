@@ -52,7 +52,7 @@ export default {
 
   },
   created() {
-    this.GET_SECOND_DATA({id: this.$route.params.id})
+    // this.GET_SECOND_DATA({id: this.$route.params.id})
   },
 }
 </script>
