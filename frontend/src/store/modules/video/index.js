@@ -15,7 +15,7 @@ export default ({
         },
     },
     actions: {
-        GET_VIDEO_EVENTS_DATA({commit, rootState}, {url = this.state.VIDEO_URL,}) {
+        GET_VIDEO_EVENTS_DATA({commit, rootState}, {url = this.state.VIDEO_DATA_URL,}) {
             /**
              Получает данные для первой страницы
              */

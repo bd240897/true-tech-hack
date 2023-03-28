@@ -13,14 +13,19 @@
               fill="white"/>
         </symbol>
       </svg>
-
       <div class="container">
 
         <div class="video">
 
+          <!--          <div class="video-wrapper">-->
+          <!--            <video id="myvideo" class="video-stream" width="100%" height="auto">-->
+          <!--              <source controls="controls" src="http://91.185.84.82:8001/video" type="video/mp4"/>-->
+          <!--            </video>-->
+          <!--          </div>-->
+
           <div class="video-wrapper">
             <video id="myvideo" class="video-stream" width="100%" height="auto">
-              <source controls="controls" src="http://91.185.84.82:8001/video" type="video/mp4"/>
+              <source controls="controls" src="http://localhost:8000/video/" type="video/mp4"/>
             </video>
           </div>
 
@@ -116,6 +121,7 @@ export default {
   },
   computed: {
     ...mapState('video', ['videoEventsData',]),
+    ...mapState(['VIDEO_URL',]),
   },
   methods: {
     ...mapActions('video', ["GET_VIDEO_EVENTS_DATA",]),
@@ -137,6 +143,12 @@ export default {
     this.GET_VIDEO_EVENTS_DATA({})
   },
   mounted() {
+
+
+    // смена ссылки на видео
+    let videoElement = document.getElementById('myvideo');
+    videoElement.src = this.VIDEO_URL
+    document.getElementById("myvideo").poster = "https://papik.pro/en/uploads/posts/2022-07/1658692788_34-papik-pro-p-pure-black-background-without-drawing-35.jpg";
 
     //////////////////////////////// player video ///////////////////////////////////////////////////////////
     let controls = {

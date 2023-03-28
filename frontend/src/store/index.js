@@ -12,8 +12,8 @@ export default createStore({
       FIRST_SCREEN_URL: "/get-first-screen/",
       SECOND_SCREEN_URL: "/get-second-screen/",
       THIRD_SCREEN_URL: "/get-third-screen/",
-      VIDEO_URL: "/get-time-events/",
-
+      VIDEO_DATA_URL: "/get-time-events/",
+      VIDEO_URL: process.env.VUE_APP_VIDEO_URL || "http://localhost:8000/video/" // 91.185.84.82:8001
     }
   },
   getters: {

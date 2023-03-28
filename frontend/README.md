@@ -24,5 +24,7 @@ https://cli.vuejs.org/ru/guide/deployment.html#docker-nginx
     http://dummyimage.com/400
 
 
-dev env VUE_APP_API_URL=http://158.160.58.85:3004
+dev env 
+VUE_APP_API_URL=http://91.185.84.82:3004
+VUE_APP_VIDEO_URL=http://91.185.84.82:8001/video 
 dev env API
