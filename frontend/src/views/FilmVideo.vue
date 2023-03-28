@@ -121,8 +121,6 @@
               </div>
             </div>
           </div>
-          <!-- <button class="btn-1">Черно белое видео</button>
-          <button class="btn-2">Яркость 100%</button> -->
         </div>
       </div>
     </div>
@@ -176,177 +174,29 @@ export default {
     this.GET_VIDEO_EVENTS_DATA({})
   },
   mounted() {
-// // смена ссылки на видео
-//     let videoElement = document.getElementById('myvideo');
-//     videoElement.src = this.VIDEO_URL
-//     document.getElementById("myvideo").poster =
-//
+    // смена ссылки на видео
+    let videoElement = document.getElementById('myvideo');
+    videoElement.src = this.VIDEO_URL
+    document.getElementById("myvideo").poster = "https://papik.pro/en/uploads/posts/2022-07/1658692788_34-papik-pro-p-pure-black-background-without-drawing-35.jpg";
 
-    //////////////////////////////// player video ///////////////////////////////////////////////////////////
-    let controls = {
-      video: $("#myvideo"),
-      total: $("#total"),
-      buffered: $("#buffered"),
-      progress: $("#current"),
-      duration: $("#duration"),
-      currentTime: $("#currenttime"),
-      back: $("#back"),
-      up: $("#up"),
-      play: $("#play"),
-      stop: $("#stop"),
-      btn1: $(".btn-1"),
-      hasHours: false,
-
-      togglePlayback: function () {
-        (video.paused) ? video.play($('.video__btn').css('display', 'none'))
-            : video.pause($('.video__btn').css('display', 'block'));
-      }
-    };
-
-    let check = 0;
-    let check1 = 0;
-    let video = controls.video[0];
-
-    video.addEventListener("ended", function () {
-      video.pause();
-    });
-
-    controls.video.click(function () {
-      controls.togglePlayback();
-    });
-
-    video.addEventListener("canplay", function () {
-      controls.hasHours = (video.duration / 3600) >= 1.0;
-
-      controls.duration.text(formatTime(video.duration, controls.hasHours));
-      controls.currentTime.text(formatTime(0), controls.hasHours);
-    }, false);
-
-    video.addEventListener("timeupdate", function () {
-      controls.currentTime.text(formatTime(video.currentTime, controls.hasHours));
-
-      let progress = Math.floor(video.currentTime) / Math.floor(video.duration);
-      controls.progress[0].style.width = Math.floor(progress * controls.total.width()) + "px";
-    }, false);
-
-    controls.total.click(function (e) {
-      let x = (e.pageX - this.offsetLeft) / $(this).width();
-      video.currentTime = x * video.duration;
-    });
-
-    controls.up.click(function (e) {
-      video.currentTime += 15;
-    });
-
-    controls.back.click(function (e) {
-      video.currentTime -= 15;
-    });
-
-    function formatTime(time, hours) {
-      if (hours) {
-        let h = Math.floor(time / 3600);
-        time = time - h * 3600;
-
-        let m = Math.floor(time / 60);
-        let s = Math.floor(time % 60);
-
-        return h.lead0(2) + ":" + m.lead0(2) + ":" + s.lead0(2);
-      } else {
-        let m = Math.floor(time / 60);
-        let s = Math.floor(time % 60);
-
-        return m.lead0(2) + ":" + s.lead0(2);
-      }
-    }
-
-    Number.prototype.lead0 = function (n) {
-      let nz = "" + this;
-      while (nz.length < n) {
-        nz = "0" + nz;
-      }
-      return nz;
-    };
 
     ///////////////////////////////////////// effects /////////////////////////////////////////////////////
-    // button for video drive
-
-    // let timeEvents = [
-    //   {
-    //     id: 1,
-    //     type: "blur-filter",
-    //     on: 2,
-    //     off: 5
-    //   },
-    //   {
-    //     id: 2,
-    //     type: "blur-filter",
-    //     on: 7,
-    //     off: 10
-    //   }]
-
-    document.querySelector('.sun__btn').addEventListener('click', () => {
-      if (check === 0) {
-        document.querySelector(".br__co__wrapper").style.display = "block";
-        document.querySelector('.sun__svg').style.fill = "rgba(155, 155, 155, 1)";
-        check += 1;
-      } else {
-        document.querySelector(".br__co__wrapper").style.display = "none";
-        document.querySelector('.sun__svg').style.fill = "rgba(255, 255, 255, 1)";
-        check = 0;
-      }
-    })
-
-    document.querySelector('.alice-block').addEventListener('click', () => {
-      if (check1 === 0) {
-        document.querySelector(".alica-text-wrapper").style.display = "block";
-        document.querySelector('.ali__svg').style.fill = "rgba(155, 155, 155, 1)";
-        check1 += 1;
-      } else {
-        document.querySelector(".alica-text-wrapper").style.display = "none";
-        document.querySelector('.ali__svg').style.fill = "rgba(255, 255, 255, 1)";
-        check1 = 0;
-      }
-    })
-
-    // document.querySelector("#play").addEventListener('click', event => {
-    //   event.preventDefault();
-    //   document.querySelector(".video-stream").play();
-    //   document.querySelector(".video__btn").style.display = "none";
-    // })
-
-    // document.querySelector("#stop").addEventListener('click', event => {
-    //   event.preventDefault();
-    //   document.querySelector(".video-stream").pause();
-    //   document.querySelector(".video__btn").style.display = "block";
-    // })
-
-    // document.querySelector(".btn-1").addEventListener('click', event => {
-    //   event.preventDefault()
-    //   cleanWrapperClasses()
-    //   document.querySelector(".video-wrapper").classList.add("black-white-filter")
-    // })
-
-    // document.querySelector(".btn-2").addEventListener('click', event => {
-    //   event.preventDefault()
-    //   cleanWrapperClasses()
-    //   document.querySelector(".video-wrapper").classList.add("brightness-high-filter")
-    // })
 
     document.querySelector('.div-BCS').addEventListener('click', event => {
       event.preventDefault()
       setBCS()
     })
 
-    document.querySelector(".video-wrapper").addEventListener('timeupdate', event => {
+    document.querySelector(".video-stream").addEventListener('timeupdate', event => {
       // event.preventDefault()
-      const video = document.querySelector(".video-wrapper")
+      const video = document.querySelector(".video-stream")
       let currentTime = video.currentTime
       console.log(currentTime)
 
       let alreadyUsedEvents = []
       this.videoEventsData.forEach(x => { //timeEvents was
         if (currentTime > x.on && currentTime < x.off) {
-          document.querySelector(".video-wrapper").classList.add("blur-filter")
+          document.querySelector(".video-stream").classList.add("blur-filter")
           console.log('on')
         } else if (currentTime > x.off && !alreadyUsedEvents.includes(x.id)) {
           alreadyUsedEvents.push(x.id)
@@ -356,14 +206,12 @@ export default {
       })
     })
 
-
     // очищает классы для обертки видео
     function cleanWrapperClasses() {
       let a = document.querySelector(".video-wrapper")
       a.className = ''
       a.classList.add("video-wrapper")
     }
-
 
     // установить яркость конрастность и насыщенность для видео
     function setBCS() {
@@ -378,7 +226,7 @@ export default {
 
     // сбрасывает стили для видер
     function resetBCSStyle() {
-      let a = video
+      let a = document.querySelector(".video-stream")
       a.style = ""
       document.querySelector('.brightness').value = 100
       document.querySelector('.contrast').value = 100
@@ -398,17 +246,6 @@ export default {
       resetBCSStyle()
       cleanWrapperClasses()
     })
-
-
-    // устанавливает заданные параметры видео
-    function setBCSValue(brightness, contrast, saturate) {
-      document.querySelector('.brightness').value = brightness //400
-      document.querySelector('.contrast').value = contrast //100
-      document.querySelector('.saturate').value = saturate //100
-      const note = document.querySelector('.video-stream');
-      note.style.filter = `brightness(${brightness}%) contrast(${contrast}%) saturate(${saturate}%)`;
-    }
-
 
   }
 }

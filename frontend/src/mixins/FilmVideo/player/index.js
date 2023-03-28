@@ -1,6 +1,5 @@
 export default {
     mounted() {
-
         //////////////////////////////// player video ///////////////////////////////////////////////////////////
         let controls = {
             video: $("#myvideo"),
@@ -9,6 +8,11 @@ export default {
             progress: $("#current"),
             duration: $("#duration"),
             currentTime: $("#currenttime"),
+            back: $("#back"),
+            up: $("#up"),
+            play: $("#play"),
+            stop: $("#stop"),
+            btn1: $(".btn-1"),
             hasHours: false,
 
             togglePlayback: function () {
@@ -17,6 +21,8 @@ export default {
             }
         };
 
+        let check = 0;
+        let check1 = 0;
         let video = controls.video[0];
 
         video.addEventListener("ended", function () {
@@ -46,6 +52,14 @@ export default {
             video.currentTime = x * video.duration;
         });
 
+        controls.up.click(function (e) {
+            video.currentTime += 15;
+        });
+
+        controls.back.click(function (e) {
+            video.currentTime -= 15;
+        });
+
         function formatTime(time, hours) {
             if (hours) {
                 let h = Math.floor(time / 3600);
@@ -70,5 +84,31 @@ export default {
             }
             return nz;
         };
+
+
+        document.querySelector('.sun__btn').addEventListener('click', () => {
+            if (check === 0) {
+                document.querySelector(".br__co__wrapper").style.display = "block";
+                document.querySelector('.sun__svg').style.fill = "rgba(155, 155, 155, 1)";
+                check += 1;
+            } else {
+                document.querySelector(".br__co__wrapper").style.display = "none";
+                document.querySelector('.sun__svg').style.fill = "rgba(255, 255, 255, 1)";
+                check = 0;
+            }
+        })
+
+        document.querySelector('.alice-block').addEventListener('click', () => {
+            if (check1 === 0) {
+                document.querySelector(".alica-text-wrapper").style.display = "block";
+                document.querySelector('.ali__svg').style.fill = "rgba(155, 155, 155, 1)";
+                check1 += 1;
+            } else {
+                document.querySelector(".alica-text-wrapper").style.display = "none";
+                document.querySelector('.ali__svg').style.fill = "rgba(255, 255, 255, 1)";
+                check1 = 0;
+            }
+        })
+
     }
 }
