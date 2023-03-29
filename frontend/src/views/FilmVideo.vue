@@ -1,5 +1,5 @@
 <template>
-  <div class="h-100">
+
     <Header></Header>
 
     <section class="first_screen h-100">
@@ -126,7 +126,7 @@
         </div>
       </div>
     </section>
-  </div>
+
 </template>
 
 <script>
@@ -244,8 +244,6 @@ export default {
 
   }
 }
-
-
 </script>
 
 <style scoped>
@@ -279,11 +277,6 @@ export default {
   src: url('../assets/fonts/ubuntu-v20-cyrillic_latin-regular.eot'); /* IE9 Compat Modes */
   src: url('../assets/fonts/ubuntu-v20-cyrillic_latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../assets/fonts/ubuntu-v20-cyrillic_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */ url('../assets/fonts/ubuntu-v20-cyrillic_latin-regular.woff') format('woff'), /* Modern Browsers */ url('../assets/fonts/ubuntu-v20-cyrillic_latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */ url('../assets/fonts/ubuntu-v20-cyrillic_latin-regular.svg#Ubuntu') format('svg'); /* Legacy iOS */
 }
-
-/** {*/
-/*  margin: 0;*/
-/*  padding: 0;*/
-/*}*/
 
 * {
   margin: 0;
@@ -499,10 +492,6 @@ body {
 
   .container {
     width: 43%;
-  }
-
-  .screen-name {
-    font-size: 26px;
   }
 
   .progress {

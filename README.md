@@ -6,7 +6,7 @@ True Tech Hack
 
 ## Демо:
 =
-[![Watch the video](./materials/prototype_preview.png)](https://youtu.be/aSgtn1f2SU4;)
+[![Watch the video](./materials/prototype_preview.png)](https://youtu.be/pJ4CKSHOHFk;)
 
 ## Оглавление
 0. [Команда](#Команда)

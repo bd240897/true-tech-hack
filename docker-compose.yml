@@ -4,8 +4,8 @@ services:
     build:
       context: ./frontend
       dockerfile: dev.Dockerfile
+    # Запускаем vue + mock-server
     command: npm run both
-#    command: http-server dist --port 80
     ports:
       - "8080:8080"
       - "3004:3004"
@@ -13,8 +13,6 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    # TODO
-    restart: always
     # Запускаем тестовый сервер
     command: uvicorn main:app --host 0.0.0.0 --port 8000
     ports:

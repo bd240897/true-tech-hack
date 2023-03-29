@@ -205,14 +205,8 @@
             </div>
           </div>
         </div>
-
       </div>
-
     </section>
-
-    <!--    <script src="../assets/js/video_list_2/libs/gsap/gsap.min.js" defer></script>-->
-    <!--    <script src="../assets/js/video_list_2/libs/gsap/ScrollTrigger.min.js" defer></script>-->
-    <!--    <script src="../assets/js/video_list_2/libs/gsap/ScrollSmoother.min.js" defer></script>-->
 
   </div>
 
@@ -221,10 +215,6 @@
 
 <script>
 import goToSomewhere from "@/mixins/goToSomewhere";
-import {mapActions, mapState} from "vuex";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import * as myKey from '../assets/js/video_list_2/libs/gsap/gsap.min.js';
 
 export default {
   name: "FilmsList",
@@ -235,14 +225,13 @@ export default {
       temp: '',
     }
   },
-  computed: {
-    // ...mapState('first', ['firstData',]),
-  },
+  computed: {},
   methods: {},
   created() {
 
   },
   mounted() {
+
   }
 }
 
@@ -264,30 +253,12 @@ body {
   background-color: #001424;
 }
 
-.bg__image {
-  position: absolute;
-  top: 0;
-  overflow: hidden;
-}
-
 .header {
   background: url('../assets/img/video_list_2/bg_image.png') no-repeat top center;
 }
 
 .headeer__wrapper {
   width: 1440px;
-  margin: 0 auto;
-}
-
-.main__img {
-  position: relative;
-  left: -50%;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.container {
-  max-width: 1440px;
   margin: 0 auto;
 }
 
