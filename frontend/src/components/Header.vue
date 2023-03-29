@@ -1,7 +1,6 @@
 <template>
     <header class="header">
       <div class="headeer__wrapper">
-        <img src="../assets/img/video_list_2/Logo.png" alt="" class="header-kion">
         <div class="header__inner">
           <div class="header__left">
             <nav class="header__nav">
@@ -24,30 +23,12 @@
             </div>
           </div>
         </div>
-<!--        <div class="home__title">-->
-<!--          <img src="../assets/img/video_list_2/миллионер_название_баннер.svg" alt="" class="home__title-img">-->
-<!--          <p class="home__title__text">Четверо рыбаков узнают, что вот-вот останутся без работы. Чем не повод ограбить-->
-<!--            собственного босса!</p>-->
-<!--          <div class="home__title-descr">-->
-<!--            <p class="home__title-descr&#45;&#45;text">2022</p>-->
-<!--            <p class="home__title-descr&#45;&#45;text">Комедия</p>-->
-<!--            <p class="home__title-descr&#45;&#45;text">18+</p>-->
-<!--          </div>-->
-<!--          <img class="home__title-play" src="../assets/img/video_list_2/play2.svg" alt="">-->
-<!--        </div>-->
-<!--        <div class="arrow">-->
-<!--          <svg class="arrow-svg" width="100" height="45" viewBox="0 0 100 45" fill="none"-->
-<!--               xmlns="http://www.w3.org/2000/svg">-->
-<!--            <path d="M2 2L50 42L98 2" stroke="white" stroke-width="4" stroke-linecap="round"/>-->
-<!--          </svg>-->
-<!--        </div>-->
       </div>
     </header>
 </template>
 
 <script>
 import goToSomewhere from "@/mixins/goToSomewhere";
-import player from "@/mixins/FilmVideo/player";
 export default {
   name: "Header",
   mixins: [goToSomewhere],
@@ -78,7 +59,7 @@ body {
 
 .header {
   /*background: url('../assets/img/video_list_2/bg_image.png') no-repeat top center;*/
-  background-color: rgb(225,151,2)
+  background-color: rgba(225,151,2,0)
 }
 
 .headeer__wrapper {
@@ -91,12 +72,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.header-kion {
-  position: absolute;
-  top: 12%;
-  margin-left: 40px;
 }
 
 .header__left {
