@@ -69,7 +69,7 @@ export default {
 
                   <div class="col-12 p-3">
                     <div class="preset-element text-center text-white bg-primary" v-on:click="setPreset('clear')">
-                      clear all presets
+                      Сбросить все пресеты
                     </div>
                   </div>
                 </div>
@@ -83,7 +83,7 @@ export default {
                     @click="close"
                     aria-label="Close modal"
                 >
-                  Close me!
+                  Закрыть окно
                 </button>
               </div>
             </div>

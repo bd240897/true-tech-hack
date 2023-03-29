@@ -4,7 +4,7 @@
 <!--  </div>-->
 
   <div class="content">
-    <router-view class="b"/>
+    <router-view/>
   </div>
 
 <!--  <div class="footer">-->

@@ -1,14 +1,4 @@
 <template>
-
-<!--  <h1 class="screen-name text-center text-white">FilmsList</h1>-->
-
-<!--  <section class="first_screen">-->
-<!--    <div class="container">-->
-<!--      FilmsList-->
-<!--      <button v-on:click="goToFilmDetail">GoToFilmDetails</button>-->
-<!--    </div>-->
-<!--  </section>-->
-
   <div class="wrapper">
     <header class="header">
       <div class="headeer__wrapper">
@@ -72,7 +62,7 @@
           <p class="more">Смотреть больше ></p>
         </div>
 
-        <div class="cards" v-on:click="goToFilmDetail">
+        <div class="cards" v-on:click="goToFilmVideo">
           <div class="card">
             <img class="card__img" src="../assets/img/video_list_2/films/1.png" alt="">
             <div class="card__text">
@@ -85,7 +75,7 @@
             </div>
           </div>
 
-          <div class="card">
+          <div class="card" v-on:click="goToFilmVideo">
             <img class="card__img" src="../assets/img/video_list_2/films/2.png" alt="">
             <div class="card__text">
               <p class="card_name">Раневская</p>
@@ -96,7 +86,7 @@
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card" v-on:click="goToFilmVideo">
             <img class="card__img" src="../assets/img/video_list_2/films/3.png" alt="">
             <div class="card__text">
               <p class="card_name">Один настоящий де..</p>
@@ -107,7 +97,7 @@
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card" v-on:click="goToFilmVideo">
             <img class="card__img" src="../assets/img/video_list_2/films/4.png" alt="">
             <div class="card__text">
               <p class="card_name">Тест на беременно...</p>
@@ -118,7 +108,7 @@
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card" v-on:click="goToFilmVideo">
             <img class="card__img" src="../assets/img/video_list_2/films/5.png" alt="">
             <div class="card__text">
               <p class="card_name">Комплекс Бога</p>
@@ -129,7 +119,7 @@
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card" v-on:click="goToFilmVideo">
             <img class="card__img" src="../assets/img/video_list_2/films/6.png" alt="">
             <div class="card__text">
               <p class="card_name">Омар в большом го..</p>
@@ -148,7 +138,7 @@
         <p class="descr">Фильмы содержат функцию пропуска сцен, способных вызвать эпелептический припадок, а также
           фильтры для разных типов дальтонизма.</p>
         <div class="cards cards-sec">
-          <div class="card">
+          <div class="card" v-on:click="goToFilmVideo">
             <img class="card__img" src="../assets/img/video_list_2/films/1.png" alt="">
             <div class="card__text">
               <p class="card_name">Сердце Пармы</p>
@@ -159,7 +149,7 @@
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card" v-on:click="goToFilmVideo">
             <img class="card__img" src="../assets/img/video_list_2/films/2.png" alt="">
             <div class="card__text">
               <p class="card_name">Раневская</p>
@@ -170,7 +160,7 @@
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card" v-on:click="goToFilmVideo">
             <img class="card__img" src="../assets/img/video_list_2/films/3.png" alt="">
             <div class="card__text">
               <p class="card_name">Один настоящий де..</p>
@@ -181,7 +171,7 @@
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card" v-on:click="goToFilmVideo">
             <img class="card__img" src="../assets/img/video_list_2/films/4.png" alt="">
             <div class="card__text">
               <p class="card_name">Тест на беременно...</p>
@@ -192,7 +182,7 @@
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card" v-on:click="goToFilmVideo">
             <img class="card__img" src="../assets/img/video_list_2/films/5.png" alt="">
             <div class="card__text">
               <p class="card_name">Комплекс Бога</p>
@@ -203,7 +193,7 @@
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card" v-on:click="goToFilmVideo">
             <img class="card__img" src="../assets/img/video_list_2/films/6.png" alt="">
             <div class="card__text">
               <p class="card_name">Омар в большом го..</p>
@@ -220,9 +210,9 @@
 
     </section>
 
-<!--    <script src="../assets/js/video_list_2/libs/gsap/gsap.min.js" defer></script>-->
-<!--    <script src="../assets/js/video_list_2/libs/gsap/ScrollTrigger.min.js" defer></script>-->
-<!--    <script src="../assets/js/video_list_2/libs/gsap/ScrollSmoother.min.js" defer></script>-->
+    <!--    <script src="../assets/js/video_list_2/libs/gsap/gsap.min.js" defer></script>-->
+    <!--    <script src="../assets/js/video_list_2/libs/gsap/ScrollTrigger.min.js" defer></script>-->
+    <!--    <script src="../assets/js/video_list_2/libs/gsap/ScrollSmoother.min.js" defer></script>-->
 
   </div>
 
@@ -236,7 +226,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import * as myKey from '../assets/js/video_list_2/libs/gsap/gsap.min.js';
 
-  export default {
+export default {
   name: "FilmsList",
   components: {},
   mixins: [goToSomewhere],
@@ -248,9 +238,7 @@ import * as myKey from '../assets/js/video_list_2/libs/gsap/gsap.min.js';
   computed: {
     // ...mapState('first', ['firstData',]),
   },
-  methods: {
-
-  },
+  methods: {},
   created() {
 
   },
@@ -261,7 +249,7 @@ import * as myKey from '../assets/js/video_list_2/libs/gsap/gsap.min.js';
 
 </script>
 <style scoped>
-  @import '../assets/css/normalize.css';
+@import '../assets/css/normalize.css';
 
 * {
   padding: 0;
@@ -433,7 +421,8 @@ body {
 }
 
 .card {
-  --bs-card-bg: rgba(0,0,0,0)
+  --bs-card-bg: rgba(0, 0, 0, 0);
+  cursor: pointer;
 }
 
 .cards {
