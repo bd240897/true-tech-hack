@@ -291,6 +291,10 @@ export default {
   padding: 0;
 }
 
+.first_screen {
+  background-color: #001424;
+}
+
 body {
   font-family: 'Ubuntu';
   min-width: 320px;
@@ -456,6 +460,7 @@ body {
   outline: none;
   border: none;
   padding: 8px 16px;
+  margin-bottom: 50px;
 }
 
 .btn__wrapper {
@@ -466,6 +471,26 @@ body {
 
 .btn__wrapper button {
   color: #fff;
+}
+
+@media (max-width: 2300px) {
+  .container {
+    width: 48%;
+  }
+
+  .progress {
+    width: 85%;
+  }
+}
+
+@media (max-width: 1920px) {
+  .container {
+    width: 48%;
+  }
+
+  .progress {
+    width: 80%;
+  }
 }
 
 @media (max-width: 1440px) {

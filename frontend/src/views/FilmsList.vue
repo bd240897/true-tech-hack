@@ -410,7 +410,6 @@ body {
 .home {
   display: flex;
   justify-content: center;
-  border-radius: 100px;
 }
 
 .hits {
@@ -431,6 +430,10 @@ body {
   display: flex;
   justify-content: space-between;
 
+}
+
+.card {
+  --bs-card-bg: rgba(0,0,0,0)
 }
 
 .cards {
