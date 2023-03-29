@@ -1,154 +1,231 @@
 <template>
 
-  <h1 class="screen-name text-center text-white">FilmsList</h1>
+<!--  <h1 class="screen-name text-center text-white">FilmsList</h1>-->
 
-  <section class="first_screen">
-    <div class="container">
-      FilmsList
-      <button v-on:click="goToFilmDetail">GoToFilmDetails</button>
-    </div>
-  </section>
+<!--  <section class="first_screen">-->
+<!--    <div class="container">-->
+<!--      FilmsList-->
+<!--      <button v-on:click="goToFilmDetail">GoToFilmDetails</button>-->
+<!--    </div>-->
+<!--  </section>-->
 
-   <div class="wrapper search_live" style="background-color: #001424;">
-      <header class="header">header</header>
-
-      <section class="content">
-        <div class="main">
-
-          <section class="logo">
-            <div class="container">
-              <div class="logo">
-                <div class="logo__item">
-                  <img src="../assets/img/video_list/logo.svg" alt="" />
-                </div>
-              </div>
+  <div class="wrapper">
+    <header class="header">
+      <div class="headeer__wrapper">
+        <img src="../assets/img/video_list_2/Logo.png" alt="" class="header-kion">
+        <div class="header__inner">
+          <div class="header__left">
+            <nav class="header__nav">
+              <ul class="nav__items">
+                <li class="nav__item"><a href="">Главная</a></li>
+                <li class="nav__item"><a href="">Телеканалы</a></li>
+                <li class="nav__item"><a href="">Фильмы</a></li>
+                <li class="nav__item"><a href="">Сериалы</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="header__right">
+            <div class="header__find">
+              <input class="header__find-text" type="text" name="find" placeholder="Поиск">
             </div>
-          </section>
-
-          <section class="search">
-            <div class="container">
-              <div class="string">
-                <div class="string__block">
-                  <div class="string__item">
-                    <div class="string__logo">
-                      <img src="../assets/img/video_list/find_icon.png" alt="" />
-                    </div>
-
-                    <div class="string__form">
-                      <form method="post">
-                        <input
-                          type="text"
-                          id="myInput"
-                          placeholder="Поиск фильмов по жанрам и актерам"
-                        />
-                      </form>
-                    </div>
-
-                    <div class="string__cruz">
-                      <img src="../assets/img/video_list/cruz_icon.png" alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="tags">
-                <div class="tags__block">
-                  <div class="tags__item">Как я встретил мамку</div>
-                  <div class="tags__item">Гоп-стоп</div>
-                  <div class="tags__item">Весенний дрозд</div>
-                  <div class="tags__item">Белоснежка и семь гномов</div>
-                  <div class="tags__item tags__item--extra">Трое в лодке</div>
-                  <div class="tags__item tags__item--extra">
-                    Бандитский петербург
-                  </div>
-                  <div class="tags__item tags__item--extra">
-                    Спящая женщина и принц
-                  </div>
-                  <div class="tags__item tags__item--extra">Война миров</div>
-                  <div class="tags__item tags__item--extra">
-                    Дикий дикий дикий запад
-                  </div>
-                </div>
-              </div>
+            <div class="header__profile">
+              <svg class="header__profile-icon" width="40" height="40">
+                <use href="#profile-icon"></use>
+              </svg>
             </div>
-          </section>
-
-          <section class="results">
-            <div class="container">
-              <h2 class="results__header">Нашли 82 фильма</h2>
-
-              <div class="results__row">
-                <div class="results__col">
-                  <div class="results__item">
-                    <img src="../assets/img/video_list/poster.png" alt="" />
-                  </div>
-                </div>
-                <div class="results__col">
-                  <div class="results__item">
-                    <img src="../assets/img/video_list/poster.png" alt="" />
-                  </div>
-                </div>
-                <div class="results__col">
-                  <div class="results__item">
-                    <img src="../assets/img/video_list/poster.png" alt="" />
-                  </div>
-                </div>
-                <div class="results__col">
-                  <div class="results__item">
-                    <img src="../assets/img/video_list/poster.png" alt="" />
-                  </div>
-                </div>
-
-                <div class="results__col">
-                  <div class="results__item results__item--no_poster">
-                    <img src="../assets/img/video_list/loading.png" alt="" />
-
-                    <div class="results__item__name">Шпионский мост</div>
-                    <div class="results__item__ganre">Боевик, триллер</div>
-                    <div class="results__item__year">2017</div>
-                  </div>
-                </div>
-
-                <div class="results__col">
-                  <div class="results__item results__item--loading">
-                    <img src="../assets/img/video_list/loading.png" alt="" />
-
-                    <div class="results__item__plug_1"></div>
-                    <div class="results__item__plug_2"></div>
-                  </div>
-                </div>
-
-                <div class="results__col">
-                  <div class="results__item results__item--loading">
-                    <img src="../assets/img/video_list/loading.png" alt="" />
-
-                    <div class="results__item__plug_1"></div>
-                    <div class="results__item__plug_2"></div>
-                  </div>
-                </div>
-
-                <div class="results__col">
-                  <div class="results__item results__item--loading">
-                    <img src="../assets/img/video_list/loading.png" alt="" />
-
-                    <div class="results__item__plug_1"></div>
-                    <div class="results__item__plug_2"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="no_results">
-            <div class="container">
-              <div class="no_results__text">
-                Мы не поняли о чем речь ¯\_(ツ)_/¯
-              </div>
-            </div>
-          </section>
+          </div>
         </div>
-      </section>
-    </div>
+        <div class="home__title">
+          <img src="../assets/img/video_list_2/миллионер_название_баннер.svg" alt="" class="home__title-img">
+          <p class="home__title__text">Четверо рыбаков узнают, что вот-вот останутся без работы. Чем не повод ограбить
+            собственного босса!</p>
+          <div class="home__title-descr">
+            <p class="home__title-descr--text">2022</p>
+            <p class="home__title-descr--text">Комедия</p>
+            <p class="home__title-descr--text">18+</p>
+          </div>
+          <img class="home__title-play" src="../assets/img/video_list_2/play2.svg" alt="">
+        </div>
+        <div class="arrow">
+          <svg class="arrow-svg" width="100" height="45" viewBox="0 0 100 45" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 2L50 42L98 2" stroke="white" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </header>
+    <section class="home">
+      <div class="hits">
+        <div class="bottom-menu">
+          <img src="../assets/img/video_list_2/12345.png" alt="">
+          <nav class="header__nav">
+            <ul class="nav__items new__style">
+              <li class="nav__item"><a href="">Главная</a></li>
+              <li class="nav__item"><a href="">Телеканалы</a></li>
+              <li class="nav__item"><a href="">Фильмы</a></li>
+              <li class="nav__item"><a href="">Сериалы</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="hits-top">
+          <h2 class="title-hits">Хиты на KION</h2>
+          <p class="more">Смотреть больше ></p>
+        </div>
+
+        <div class="cards" v-on:click="goToFilmDetail">
+          <div class="card">
+            <img class="card__img" src="../assets/img/video_list_2/films/1.png" alt="">
+            <div class="card__text">
+              <p class="card_name">Сердце Пармы</p>
+              <div class="card__rating">
+                <img class="card__rating-stars" src="../assets/img/video_list_2/Vector.png" alt="">
+                <p class="rating">8.6 /</p>
+                <p class="podpiska">Подписка</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card__img" src="../assets/img/video_list_2/films/2.png" alt="">
+            <div class="card__text">
+              <p class="card_name">Раневская</p>
+              <div class="card__rating">
+                <img class="card__rating-stars" src="../assets/img/video_list_2/Vector.png" alt="">
+                <p class="rating">8.6 /</p>
+                <p class="podpiska">Подписка</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card__img" src="../assets/img/video_list_2/films/3.png" alt="">
+            <div class="card__text">
+              <p class="card_name">Один настоящий де..</p>
+              <div class="card__rating">
+                <img class="card__rating-stars" src="../assets/img/video_list_2/Vector.png" alt="">
+                <p class="rating">8.6 /</p>
+                <p class="podpiska">Подписка</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card__img" src="../assets/img/video_list_2/films/4.png" alt="">
+            <div class="card__text">
+              <p class="card_name">Тест на беременно...</p>
+              <div class="card__rating">
+                <img class="card__rating-stars" src="../assets/img/video_list_2/Vector.png" alt="">
+                <p class="rating">8.2 /</p>
+                <p class="podpiska">Подписка</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card__img" src="../assets/img/video_list_2/films/5.png" alt="">
+            <div class="card__text">
+              <p class="card_name">Комплекс Бога</p>
+              <div class="card__rating">
+                <img class="card__rating-stars" src="../assets/img/video_list_2/Vector.png" alt="">
+                <p class="rating">8.9 /</p>
+                <p class="podpiska">Подписка</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card__img" src="../assets/img/video_list_2/films/6.png" alt="">
+            <div class="card__text">
+              <p class="card_name">Омар в большом го..</p>
+              <div class="card__rating">
+                <img class="card__rating-stars" src="../assets/img/video_list_2/Vector.png" alt="">
+                <p class="rating">7.4</p>
+                <p class="podpiska">Подписка</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hits-top hits-bot">
+          <h2 class="title-hits">Фильмы для людей с особенностями зрения</h2>
+          <p class="more">Смотреть больше ></p>
+        </div>
+        <p class="descr">Фильмы содержат функцию пропуска сцен, способных вызвать эпелептический припадок, а также
+          фильтры для разных типов дальтонизма.</p>
+        <div class="cards cards-sec">
+          <div class="card">
+            <img class="card__img" src="../assets/img/video_list_2/films/1.png" alt="">
+            <div class="card__text">
+              <p class="card_name">Сердце Пармы</p>
+              <div class="card__rating">
+                <img class="card__rating-stars" src="../assets/img/video_list_2/Vector.png" alt="">
+                <p class="rating">8.6 /</p>
+                <p class="podpiska">Подписка</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card__img" src="../assets/img/video_list_2/films/2.png" alt="">
+            <div class="card__text">
+              <p class="card_name">Раневская</p>
+              <div class="card__rating">
+                <img class="card__rating-stars" src="../assets/img/video_list_2/Vector.png" alt="">
+                <p class="rating">8.6 /</p>
+                <p class="podpiska">Подписка</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card__img" src="../assets/img/video_list_2/films/3.png" alt="">
+            <div class="card__text">
+              <p class="card_name">Один настоящий де..</p>
+              <div class="card__rating">
+                <img class="card__rating-stars" src="../assets/img/video_list_2/Vector.png" alt="">
+                <p class="rating">8.6 /</p>
+                <p class="podpiska">Подписка</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card__img" src="../assets/img/video_list_2/films/4.png" alt="">
+            <div class="card__text">
+              <p class="card_name">Тест на беременно...</p>
+              <div class="card__rating">
+                <img class="card__rating-stars" src="../assets/img/video_list_2/Vector.png" alt="">
+                <p class="rating">8.2 /</p>
+                <p class="podpiska">Подписка</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card__img" src="../assets/img/video_list_2/films/5.png" alt="">
+            <div class="card__text">
+              <p class="card_name">Комплекс Бога</p>
+              <div class="card__rating">
+                <img class="card__rating-stars" src="../assets/img/video_list_2/Vector.png" alt="">
+                <p class="rating">8.9 /</p>
+                <p class="podpiska">Подписка</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card__img" src="../assets/img/video_list_2/films/6.png" alt="">
+            <div class="card__text">
+              <p class="card_name">Омар в большом го..</p>
+              <div class="card__rating">
+                <img class="card__rating-stars" src="../assets/img/video_list_2/Vector.png" alt="">
+                <p class="rating">7.4</p>
+                <p class="podpiska">Подписка</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+<!--    <script src="../assets/js/video_list_2/libs/gsap/gsap.min.js" defer></script>-->
+<!--    <script src="../assets/js/video_list_2/libs/gsap/ScrollTrigger.min.js" defer></script>-->
+<!--    <script src="../assets/js/video_list_2/libs/gsap/ScrollSmoother.min.js" defer></script>-->
+
+  </div>
+
 
 </template>
 
@@ -157,12 +234,11 @@ import goToSomewhere from "@/mixins/goToSomewhere";
 import {mapActions, mapState} from "vuex";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import * as myKey from '../assets/js/video_list_2/libs/gsap/gsap.min.js';
 
-export default {
+  export default {
   name: "FilmsList",
-  components: {
-
-  },
+  components: {},
   mixins: [goToSomewhere],
   data() {
     return {
@@ -173,297 +249,242 @@ export default {
     // ...mapState('first', ['firstData',]),
   },
   methods: {
-    // ...mapActions('first', ["GET_FIRST_DATA",]),
-    isWarning(str) {
-      return str === 'warning'
-    },
-    isAlarm(str) {
-      return str === 'alarm'
-    },
-    isWarningOrAlarm(strData) {
-      if (strData === 'warning') {
-        return "block_exauster__params--warning"
-      } else if (strData === 'alarm') {
-        return "block_exauster__params--alert"
-      }
-    },
+
   },
   created() {
-    // this.GET_FIRST_DATA({})
+
   },
   mounted() {
-
   }
 }
 
 
 </script>
+<style scoped>
+  @import '../assets/css/normalize.css';
 
-<style lang="sass" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap')
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap")
+* {
+  padding: 0;
+  margin: 0;
+}
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap")
+body {
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  background-color: #001424;
+}
 
-$colorBackground: rgba(255, 255, 255, 0.4)
-$colorFilmItemPlugs: rgba(255, 255, 255, 0.16)
-$filterIconParams: invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%)
+.bg__image {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+}
 
-html, body
-    font-family: "Montserrat", sans-serif
-    font-size: 18px
-    line-height: 140%
-    height: 100%
-    background-color: $colorBackground
+.header {
+  background: url('../assets/img/video_list_2/bg_image.png') no-repeat top center;
+}
 
-.wrapper
-    height: 100%
-    display: flex
-    flex-direction: column
+.headeer__wrapper {
+  width: 1440px;
+  margin: 0 auto;
+}
 
-    .header
-        flex: 0 0 auto
-        background-color: blue
-        text-align: center
-        display: none
+.main__img {
+  position: relative;
+  left: -50%;
+  z-index: -1;
+  overflow: hidden;
+}
 
-    .content
-        flex: 1 0 auto
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
 
-    .footer
-        flex: 0 0 auto
-        padding: 16px 0
-        font-size: 12px
-        text-align: center
+.header__inner {
+  padding: 20px 165px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-.container
-    max-width: 900px
-    margin: 0 auto
-    padding: 0 10px
+.header-kion {
+  position: absolute;
+  top: 12%;
+  margin-left: 40px;
+}
 
-.logo
-    display: flex
-    justify-content: center
-    margin: 80px 0 54px 0
+.header__left {
+  margin-left: 190px;
+}
 
-    &__item
-        margin: 20px 0
+.nav__items {
+  display: flex;
+  gap: 30px;
+}
 
-.string
-    margin-top: 10px
+.nav__item {
+  list-style: none;
+}
 
-    &__block
-        width: 80%
-        margin: 0 auto
-        display: flex
-        justify-content: center
-        align-items: center
-        flex-direction: column
+.nav__item a {
+  text-decoration: none;
+  color: #EEEEEE;
+}
 
-    &__block:after
-        content: ""
-        display: block
-        width: 100%
-        margin: 10px 0 20px 0
-        border-bottom: 2px solid white
+.header__right {
+  display: flex;
+  gap: 20px
+}
 
-    &__item
-        width: 100%
-        display: flex
-        margin: 10px 10px
+.header__find-text {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  outline: none;
+  border: none;
+}
 
-    &__logo
-        flex: 0 0 auto
-        display: flex
-        justify-content: center
-        align-items: center
-        margin-right: 5px
+.home__title {
+  max-width: 400px;
+  position: relative;
+  margin: 325px 0 244px 328px;
+}
 
-    &__logo img
-        width: 24px
-        cursor: pointer
+.home__title-img {
+  margin-bottom: 12px;
+}
 
-    &__logo img:hover
-        filter: $filterIconParams
+.home__title__text {
+  color: #fff;
+  margin-bottom: 20px;
+}
 
-    &__cruz
-        flex: 0 0 auto
-        display: flex
-        justify-content: center
-        align-items: center
-        margin-left: 5px
+.home__title-descr {
+  display: flex;
+  gap: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  margin-bottom: 20px;
+}
 
-    &__cruz img
-        width: 24px
-        cursor: pointer
+.arrow {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -40px;
+}
 
-    &__cruz img:hover
-        filter: $filterIconParams
+.home {
+  background-color: #001424;
+  z-index: 100000;
+  position: relative;
+}
 
-    &__form
-        flex: 1 0 auto
-        align-self: center
+.hits-top {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  color: #677F99;
+}
 
-    &__form form
-        width: 100%
-        display: flex
+.more {
+  position: relative;
+  top: 5px;
+  cursor: pointer;
+}
 
-    &__form input
-        flex-grow: 1
-        min-width: 100%
-        font-size: 24px
-        background: transparent
-        border: none
-        color: white
+.title-hits {
+  margin-bottom: 30px;
+  font-size: 24px;
+  line-height: 28px;
+  color: #EEEEEE;
+  font-weight: 700;
+}
 
-    &__form input::placeholder
-        color: $colorBackground
-        width: 100%
+.home {
+  display: flex;
+  justify-content: center;
+  border-radius: 100px;
+}
 
-.tags
-    display: none
+.hits {
+  margin-top: 60px;
+}
 
-    &__block
-        display: flex
-        flex-wrap: wrap
+.card_name {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #FFFFFF;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
 
-    &__item
-        border: 1px solid black
-        padding: 6px 16px
-        background-color: #FFFFFF
-        border-radius: 5px
-        margin: 4px 4px
-        font-family: "Roboto", sans-serif
-        font-weight: 700
-        color: black
-        cursor: pointer
+.card__rating {
+  display: flex;
+  justify-content: space-between;
 
-    &__item--extra
-        display: none
+}
 
-.results
-    display: none
+.cards {
+  display: flex;
+  gap: 30px;
+}
 
-    &__header
-        font-weight: 700
-        font-size: 36px
-        color: white
-        margin: 50px 0 18px 0
+.rating {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  color: #FFFFFF;
+}
 
-    &__row
-        display: flex
-        flex-wrap: wrap
+.podpiska {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  color: #A86EA7;
+}
 
-    &__col
-        width: 1 / 4 * 100%
+.card__img {
+  border-radius: 10px;
+  transition: .4s;
+}
 
-    &__item
-        position: relative
-        padding: 12px
-        color: $colorFilmItemPlugs
+.card__img:hover {
+  border-radius: 30px;
+}
 
-    &__item img
-        width: 100%
+.hits-bot {
+  margin-top: 90px;
+}
 
-    &__item__name
-        position: absolute
-        left: 12px + 12px
-        font-size: 18px
-        bottom: 70px
+.descr {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  color: #EEEEEE;
+  width: 700px;
+  position: relative;
+  top: -20px;
+  margin-bottom: 15px;
+}
 
-    &__item__ganre
-        position: absolute
-        right: 12px + 12px
-        font-size: 12px
-        bottom: 30px
+.cards-sec {
+  margin-bottom: 150px;
+}
 
-    &__item__year
-        position: absolute
-        bottom: 30px
-        font-size: 12px
-        left: 12px + 12px
-
-    &__item__plug_1
-        position: absolute
-        padding: 8px
-        left: 10%
-        bottom: 90px
-        width: 75%
-        background-color: $colorFilmItemPlugs
-        border-radius: 2px
-        content: ""
-
-    &__item__plug_2
-        position: absolute
-        bottom: 60px
-        left: 10%
-        width: 50%
-        padding: 8px
-        background-color: $colorFilmItemPlugs
-        border-radius: 2px
-        content: ""
-
-.no_results
-    display: none
-    border: 1px solid black
-    padding: 100px 0
-    text-align: center
-
-    &__text
-        font-weight: 700
-        font-size: 36px
-        color: white
-        line-height: 100%
-
-.search_active
-    .tags
-        display: block
-
-    .string__block
-        width: 100%
-
-.search_more_history
-    .tags
-        display: block
-
-    .tags__item--extra
-        display: block
-
-    .string__block
-        width: 100%
-
-.search_not_found
-    .no_results
-        display: block
-
-    .tags
-        display: block
-
-    .string__block
-        width: 100%
-
-.search_live
-    .results
-        display: block
-
-    .tags
-        display: block
-
-    .string__block
-        width: 100%
-
-.scroll
-    .search
-        background-color: $colorBackground
-        position: sticky
-        top: 0
-        z-index: 99
-
-    .string__block
-        width: 100%
-
-    .results
-        display: block
-
-
+.bottom-menu {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  margin-bottom: 65px;
+}
 </style>

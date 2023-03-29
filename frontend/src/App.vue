@@ -1,15 +1,15 @@
 <template>
-  <div class="header">
-    <Navbar class="a"/>
-  </div>
+<!--  <div class="header">-->
+<!--    <Navbar class="a"/>-->
+<!--  </div>-->
 
   <div class="content">
     <router-view class="b"/>
   </div>
 
-  <div class="footer">
-    <Footer class="c"/>
-  </div>
+<!--  <div class="footer">-->
+<!--    <Footer class="c"/>-->
+<!--  </div>-->
 </template>
 
 <style>
