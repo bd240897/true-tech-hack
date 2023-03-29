@@ -2,6 +2,9 @@ version: '3'
 services:
   frontend:
     image: bd240897/true-tech-hack-frontend
+    environment:
+      - VUE_APP_API_URL="http://91.185.84.82:3004"
+      - VUE_APP_VIDEO_URL="http://91.185.84.82:8000/video/"
     # Запускаем vue + mock-server
     command: npm run both
     ports:
