@@ -1,7 +1,8 @@
-# Web приложение для оценки здоровья домашнего питомца "Tail app"
-Проект на хакатон Kaspersky SECUR'IT CUP'22
+# Адаптация фильмов для людей с особыми потребностями
+Проект на хакатон banner
+True Tech Hack
 
-Команда: **Win+ners**
+Команда: **I'm a teapot**
 
 ## Демо:
 =
@@ -19,37 +20,28 @@
 
 ## Команда
 1. [Дмитрий Борисов](https://t.me/DmitriiBorisov) - backend/frontend
-2. [Максим Кишик](https://t.me/kishikmaxim) - backend
-3. [Илья Радомский](https://t.me/Tealdris) - devops
-4. [Аня Мархаева](https://t.me/privetobnako) - designer
+2. [Мария Бахвалова](https://t.me/maria_bakhvalova) - UX/UI дизайнер
+3. [Алексей](https://t.me/lesha271) - frontend
+4. [Юрий](https://t.me/uikola) - backend
 
 [:arrow_up:Оглавление](#Оглавление)
 
 ## Задача
 ### Описание задачи
-Реализовать детектор заболеваний по фотографии poops для собак.
+Необходимо разработать дополнительный функционал для плеера KION, который поможет пользователям с особыми потребностями комфортно смотреть любимые фильмы и сериалы. Например, настраивать яркость и контрастность изображения, цветовую палитру и удалять сцены, которые могут вызвать эпилептический припадок
 
 [:arrow_up:Оглавление](#Оглавление)
 
 ## Архитектура
     python 3.8
-    backend - django rest framework
+    backend - FastApi
     forntend - vue.js
-    database - sqlite3/ or PostgeSQL
 
 [:arrow_up:Оглавление](#Оглавление)
 
 ## Описание Backend
 
-Backend, реализованный на `Django`, нахоодится в папке `api`.
-Ниже представлены возможности нашего API
-
-### документация к API
-
-##### `send photo`
-    method: POST
-    link: http://127.0.0.1:8000/api/v2/request/photo/quick/
-    data-parametrs: file: poop.jpg
+Backend, реализованный на `FastApi`, находится в папке `backend`.
 
 [:arrow_up:Оглавление](#Оглавление)
 
@@ -86,7 +78,7 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-c
 ### 3. Запуск через Docker-compose
 https://webdevblog.ru/kak-ispolzovat-django-postgresql-i-docker/
 
-    git clone https://github.com/bd240897/kaspersky-hack
+    git clone https://github.com/bd240897/true-tech-hack
     cd kaspersky-hack/
     docker-compose -f docker-compose.back.yml up --build -d 
     docker-compose -f docker-compose.front-nginx.yml up --build -d 
@@ -98,35 +90,22 @@ https://webdevblog.ru/kak-ispolzovat-django-postgresql-i-docker/
 Размеченные шаблоны страниц для нашего приложения находятся в папке `templates`.
 В задании был использован `bootstrap` framework
 
-- **api** - Файлы для бэкенда (django)
-  - api - папка с настройками проекта
-  - ...
-  - pet - приложение с логикой
-  - filter - приложение с фильтром входной картиной is_this_poop? 
-  - predictor - набор нейронок для предсказания болезней parasites & blood 
-    - ...
-  - example_data - тестовые данные для БД
+- **backend** - Файлы для бэкенда (fastapi)
+  - main - основная логика проекта
+  - requirements - зависимости
 - **frontend** - Файлы для фронтенда (vue)
   - public - Общедоступные файлы
   - src - исходники
 - **html_templates** - сверстанные шаблоны
-- **materials** - дополнительные материалы
-- **cnn_learning** - скрипты обучения нейронки
 
 [:arrow_up:Оглавление](#Оглавление)
 
 ## Запуск
 Протестировать уже запущенный сайт можно по ссылке:</br>
 
-    http://84.201.135.220// (доступен на момент предоставления решения)
+    http://91.185.84.82:8080/ (доступен на момент предоставления решения)
     # или
     http://localhost:8080/ (доступен при создании локального проекта)
-
-Админы у админки джанги:
-- Логин: "amid", Пароль: "1"
-
-Пользователи:
-- Логин: "user1", Пароль: "1234qwerS+"
 
 [:arrow_up:Оглавление](#Оглавление)
 
