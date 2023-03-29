@@ -1,10 +1,15 @@
 version: '3'
 services:
-  ml:
-    # Берем Dockerfile из каталога app
-    image: bd240897/true-tech-hack
-    restart: always
-    # Запускаем тестовый сервер
-    command: uvicorn main:app --host 0.0.0.0 --port 8001
+  frontend:
+    image: bd240897/true-tech-hack-frontend
+    # Запускаем vue + mock-server
+    command: npm run both
     ports:
-      - "8001:8001"
+      - "8080:8080"
+      - "3004:3004"
+  backend:
+    image: bd240897/true-tech-hack-backend
+    # Запускаем тестовый сервер
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
