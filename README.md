@@ -94,8 +94,6 @@ https://webdevblog.ru/kak-ispolzovat-django-postgresql-i-docker/
 - **frontend** - Файлы для фронтенда (vue)
   - public - Общедоступные файлы
   - src - исходники
-- **html_templates** - сверстанные шаблоны
-
 [:arrow_up:Оглавление](#Оглавление)
 
 ## Запуск
