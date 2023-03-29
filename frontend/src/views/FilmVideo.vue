@@ -2,7 +2,7 @@
 
   <h1 class="screen-name text-center text-white">FilmVideo</h1>
 
-  <section class="first_screen">
+  <section class="first_screen h-100">
     <div class="container">
 
       <div class="btn__wrapper">
