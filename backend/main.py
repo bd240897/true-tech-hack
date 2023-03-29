@@ -27,10 +27,9 @@ json_path = Path("static/video.json")
 video_path_number_2 = Path("static/video_2.mp4")
 json_path_number_2 = Path("static/video_2.json")
 
-@app.get("/")
-async def read_root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
-
+# @app.get("/")
+# async def read_root(request: Request):
+#     return templates.TemplateResponse("index.html", {"request": request})
 
 def send_bytes_range_requests(
     file_obj: BinaryIO, start: int, end: int, chunk_size: int = 10_000

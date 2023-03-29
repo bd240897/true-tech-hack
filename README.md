@@ -5,7 +5,6 @@ True Tech Hack
 Команда: **I'm a teapot**
 
 ## Демо:
-=
 [![Watch the video](./materials/prototype_preview.png)](https://youtu.be/pJ4CKSHOHFk;)
 
 ## Оглавление
@@ -79,9 +78,8 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-c
 https://webdevblog.ru/kak-ispolzovat-django-postgresql-i-docker/
 
     git clone https://github.com/bd240897/true-tech-hack
-    cd kaspersky-hack/
-    docker-compose -f docker-compose.back.yml up --build -d 
-    docker-compose -f docker-compose.front-nginx.yml up --build -d 
+    cd true-tech-hack/
+    docker-compose up --build -d 
     
 [:arrow_up:Оглавление](#Оглавление)
 
