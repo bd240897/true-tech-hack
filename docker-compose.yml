@@ -6,7 +6,7 @@ services:
       dockerfile: dev.Dockerfile
     # Запускаем vue + mock-server
     env_file:
-      - frontend.env.example
+      - frontend.env
     command: npm run both
     ports:
       - "8080:8080"
