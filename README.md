@@ -78,8 +78,11 @@ https://webdevblog.ru/kak-ispolzovat-django-postgresql-i-docker/
 
     git clone https://github.com/bd240897/true-tech-hack
     cd true-tech-hack/
+    cp frontend.env.example frontend.env
+    # укзать API вашего VPS в env-файле
     docker-compose up --build -d 
-    
+
+
 [:arrow_up:Оглавление](#Оглавление)
 
 ## Описание структуры папок проекта
