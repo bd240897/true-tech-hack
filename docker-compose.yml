@@ -10,7 +10,6 @@ services:
     command: npm run both
     ports:
       - "8080:8080"
-      - "3004:3004"
   backend:
     build:
       context: ./backend

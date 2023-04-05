@@ -74,6 +74,8 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-c
 
 
 ### 3. Запуск через Docker-compose
+
+#### 3.1. Запуск со сборкой на сервере
 https://webdevblog.ru/kak-ispolzovat-django-postgresql-i-docker/
 
     git clone https://github.com/bd240897/true-tech-hack
@@ -82,6 +84,13 @@ https://webdevblog.ru/kak-ispolzovat-django-postgresql-i-docker/
     # укзать API вашего VPS в env-файле
     docker-compose up --build -d 
 
+#### 3.2. Запуск без сборки (docker-hub)
+
+    git clone https://github.com/bd240897/true-tech-hack --branch docker_hub
+    cd true-tech-hack/
+    cp frontend.env.example frontend.env
+    # укзать API вашего VPS в env-файле
+    docker-compose up -d 
 
 [:arrow_up:Оглавление](#Оглавление)
 
