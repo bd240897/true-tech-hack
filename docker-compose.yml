@@ -8,7 +8,6 @@ services:
     command: npm run both
     ports:
       - "8080:8080"
-      - "3004:3004"
   backend:
     image: bd240897/true-tech-hack-backend
     # Запускаем тестовый сервер
